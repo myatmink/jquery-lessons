@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>UI dialog</title>
+	<link href="./libs/jquery-ui-1.13.1/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+	<div class="dbox" title="How to use jQuery UI ?">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	</div>
+
+	<button class="btn">Click Me</button>
+	<button class="tgbtn">Toggle Button</button>
+
+	<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script src="./libs/jquery-ui-1.13.1/jquery-ui.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		
+		$(document).ready(function(){
+
+			// console.log('hiiii');
+
+			$('.dbox').dialog({
+				autoOpen:false,
+				width:500,
+				height:200,
+				title:'Are you ready to use jQuery ui !!!',
+				hide:'slideUp', // slide slideUp
+				show:'slideDown', // slideDown
+				position:{
+					// at:'left',
+					// at:'left top',
+					// at:'right top',
+					// at:'bottom'
+				}
+			}).css({
+				'background-color':'gray',
+				'color':'#fff'
+			});
+
+			// for box
+			$('.dbox').parent().css('background-color','orange');
+
+			// for title
+			$('.dbox').siblings('div:nth-of-type(1)').css('background-color','skyblue');
+
+			// for button
+			$('.dbox').siblings('div:nth-of-type(1)').find('button').css('background-color','yellow');
+
+			// For Click Me Button
+			// $('.btn').click(function(){
+			// 	$('.dbox').dialog({
+			// 		autoOpen:true
+			// 	});
+			// });
+
+			$('.btn').click(function(){
+				$('.dbox').dialog('open');
+			});
+
+			$('.tgbtn').click(function(){
+				$('.dbox').dialog('isOpen') === false ? $('.dbox').dialog('open') : $('.dbox').dialog('close');
+			});
+
+		});
+
+	</script>
+</body>
+</html>

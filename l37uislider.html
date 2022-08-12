@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>UI Slider</title>
+</head>
+<body>
+
+	<div class="container">
+		
+		<form>
+
+			<div class="form-group">
+				<label for="days">Days :</label>
+				<input type="text" name="days" id="days" class="form-control" readonly /> 
+			</div>
+
+			<div class="form-group">
+				<label for="term">Term</label>
+				<div id="term"></div>
+			</div>
+
+		</form>
+
+	</div>
+
+
+	<script type="text/javascript">
+		
+		$(document).ready(function(){
+
+
+			
+
+				orientation:'vertical';
+
+				change:function(e,jqui){
+					console.log('this is change = ' , jqui.value);
+				},
+
+				start:function(e,jqui){
+					console.log('this is start = ' , jqui.value);
+				},
+
+				stop:function(e,jqui){
+					console.log('this is stop = ' , jqui.value);
+				}
+
+
+			// $('#myslider > span').css({
+			// 	'background-color':'yellow'
+			// });
+
+			$('#myslider').children('span').css('background-color','violet');
+
+
+			$('#term').css('background-color','steelblue').slider({
+
+				slide:function(e){
+
+					slide:function(e,jqui){
+						// console.log(e);
+						// console.log(jqui.value);
+
+						$('#days').val('From ' + jqui.values[0] + ' Days to ' + jqui.values[1]);
+					},
+
+					min:7,
+					max:30,
+					step:1,
+					// value:7,
+					values:[7,10],
+					range:true
+
+				};
+
+			});
+
+			$('#term').childeren('span:nth-of-type(1)').css('background-color','yellow');
+			$('#term').childeren('span:nth-of-type(1)').css('background-color','violet');
+			$('#term > div').childeren('span:nth-of-type(1)').css('background-color','skyblue');
+
+
+		});
+
+	</script>
+
+</body>
+</html>

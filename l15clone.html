@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>clone Method</title>
+</head>
+<body>
+
+	<h1>Hello Myanmar</h1>
+
+	<button type="button">Clone</button>
+
+	<div class="container">
+		
+
+	</div>
+
+	<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+
+	<script type="text/javascript">
+		
+		$(document).ready(function(){
+
+			// console.log('hi');
+
+			$('button').click(function(){
+
+				// clone က ရှိသမျှ h1 tag တွေအကုန်ယူပြီး ကလုန်းယူ 
+				// clone က appendTo နဲ့ပဲရ 
+
+				$('h1').clone().appendTo('body');
+
+				// $('h1').clone().appendTo('.container');
+
+			});
+
+		});
+
+	</script>
+
+</body>
+</html>
